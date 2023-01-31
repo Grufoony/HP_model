@@ -1,0 +1,35 @@
+The Hydrophobic-Polar model is a very simple model used to analyze the protein folding phenomenon \cite{PERM}.
+The goal is, like in the complex systems field, to simplify as much as possible the problem maintaining consistency with experimental data.
+In this model, the 20 types of amino acids present in nature are divided into 2 classes: the hydrophobic ones, labelled by \emph{H}, and the hydrophilic (or polar) ones, labelled by \emph{P}.
+So, taking a sequence of amino acids of length $k$, we need to convert it in an \emph{HP} sequence, i.e.
+\begin{equation*}
+    s = \left(s_1, \ldots, s_k\right) \ \ \ \ s_i \in \left\{H, P\right\} \forall i \in \left[1,\ldots,k\right]
+\end{equation*}
+Once obtained the sequence we need to define in which space $\mathbb{G}$ we want to fold it.
+To simplify the problem, we may think the protein folds on a square cubic lattice $\mathbb{G} = \mathbb{Z}^2$ or a three-dimensional cubic lattice $\mathbb{G} = \mathbb{Z}^3$.
+We can now define a \emph{fold} as an injective mapping $f : \left[1,\ldots,k\right] \to \mathbb{G}$ and denote with $\mathcal{Z}_k$ the set of all folds with length $k$.
+It is clear that at each point $f(i)$ is assigned an amino acid $s_i$.
+In order to define a way to express the energy of a fold we need to choose a function differentiates between adjacent and connected amino acids
+\begin{equation*}
+    \delta_{f(i),f(j)} =
+    \begin{cases}
+        1 \ , \ i \pm 1 \neq j\\
+        0 \ , \ \text{otherwise}
+    \end{cases}
+\end{equation*}
+Now, we've seen experimentally that folded proteins tends to form hydrophobic nuclei, so we set to $-1$ the energy value of a single $H$-$H$ bond, and more in general
+\begin{equation*}
+    \epsilon_{i,j} =
+    \begin{cases}
+        -1 \ , \ s_i = s_j = H\\
+        0 \ , \ \text{otherwise}
+    \end{cases}
+\end{equation*}
+So the total energy of the fold $f$ is
+\begin{equation*}
+    \mathcal{E}(f) = \sum_{0 \leq i \leq j \leq k} \epsilon_{i,j}\delta_{f(i),f(j)}
+\end{equation*}
+The goal of the \emph{HP} model is then, like most physical problems, to minimize the energy
+\begin{equation*}
+    \mathcal{E}_\text{stable} = \min_{f \in \mathcal{Z}_k} \mathcal{E}(f)
+\end{equation*}

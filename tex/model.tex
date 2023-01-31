@@ -11,7 +11,7 @@ We can now define a \emph{fold} as an injective mapping $f : \left[1,\ldots,k\ri
 It is clear that at each point $f(i)$ is assigned an amino acid $s_i$.
 In order to define a way to express the energy of a fold we need to choose a function differentiates between adjacent and connected amino acids
 \begin{equation*}
-    \delta_{f(i),f(j)} =
+    \Delta\left(f(i),f(j)\right) =
     \begin{cases}
         1 \ , \ {\left\lVert f(i) - f(j) \right\rVert}_\mathbb{G} = 1 \land i \pm 1 \neq j\\
         0 \ , \ \text{otherwise}
@@ -19,7 +19,7 @@ In order to define a way to express the energy of a fold we need to choose a fun
 \end{equation*}
 Now, we've seen experimentally that folded proteins tends to form hydrophobic nuclei, so we set to $-1$ the energy value of a single $H$-$H$ bond, and more in general
 \begin{equation*}
-    \epsilon_{i,j} =
+    \epsilon\left(s_i,s_j\right) =
     \begin{cases}
         -1 \ , \ s_i = s_j = H\\
         0 \ , \ \text{otherwise}
@@ -27,9 +27,9 @@ Now, we've seen experimentally that folded proteins tends to form hydrophobic nu
 \end{equation*}
 So the total energy of the fold $f$ is
 \begin{equation*}
-    \mathcal{E}(f) = \sum_{0 \leq i \leq j \leq k} \epsilon_{i,j}\delta_{f(i),f(j)}
+    \mathcal{E}(s,f) = \sum_{0 \leq i \leq j \leq k} \epsilon\left(s_i,s_j\right)\Delta\left(f(i),f(j)\right)
 \end{equation*}
 The goal of the \emph{HP} model is then, like most physical problems, to minimize the energy
 \begin{equation*}
-    \mathcal{E}_\text{stable} = \min_{f \in \mathcal{Z}_k} \mathcal{E}(f)
+    \mathcal{E}_\text{stable} = \min_{f \in \mathcal{Z}_k} \mathcal{E}(s,f)
 \end{equation*}

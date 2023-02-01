@@ -1,4 +1,39 @@
+It has been shown that the \emph{HP} model is a NP hard problem, so it's very difficult to fold efficiently longer protein sequences.
+We will now discuss the Rosenbluth sampling method \cite{PERM}, which involves drawing successive steps of a random walk only from among acceptable points, which are points previously not visited.
 
-\section{Self-avoiding Random Walk}
-% It has been shown that the \emph{HP} model is a NP hard problem, so it's very difficult to fold efficiently longer protein sequences.
-\section{Estimator for the number of folds}
+\subsection{Self-Avoiding Walks}
+In a random walk process on $\mathbb{G} = \mathbb{Z}^3$, each iteration consist in a step among one out of six equally likely directions.
+An analogue result is valid for $\mathbb{G} = \mathbb{Z}^2$ where we can choose one out of four equally likely directions.
+Our goal is to simulate the folding of a protein of length $k$ in the space $\mathbb{G}$ by doing a random walk of $k$ steps.
+The first thing we can notice is that this cannot be a regular random walk process because the fold is not allowed to cross itself or back up on itself at any iteration.
+The direct consequence is that each iteration of the random walk will have some constraints, e.g. all steps after the first one will have a forbidden direction (because they cannot back up).
+At this point, we can define as \emph{Self-Avoiding Walk} (SAW) a lattice path that does not visit the same point more than once.
+It is known that SAWs are fractals and their number on a given lattice will increase exponentially with the length \cite{madras1988pivot}.
+
+\subsection{Estimate the number of folds}
+For simplicity, let's assume that our SAW starts form the origin of our lattice.
+At any iteration $m$ we will have only $w_m$ possible moves, where $w$ represents a sort of weight of our chain.
+Let's call $W$ the weight of the total fold: a fold of length $k$ will have a weight
+\begin{equation*}
+    W_k = \prod_{m=1}^k w_m
+\end{equation*}
+It is not excluded that at a certain step $m < k$ we may have no further possibilities for continuation: we then say that a \emph{non-extendable} fold of length $m$ has been formed.
+Let's denote with $\mathcal{K}$ the set of all folds with length $m \leq k$.
+Clearly $\mathcal{Z}_k \subset \mathcal{K}$.
+We notice that the probability of picking a random fold $f_i \in \mathcal{K}$ of length $k$ is
+\begin{equation*}
+    \mathbb{P}\left(f_i \in \mathcal{Z}_k\right) = \prod_{j=1}^k \frac{1}{w_j} = \frac{1}{W_k}
+\end{equation*}
+Let's now denote with $n_y$ the number of folds $f_i$ for which $W\left(f_i\right) = y$ and the set of these elements $\mathcal{W}_y = \left\{f \in \mathcal{K} \ | \ W\left(f_i\right) = y\right\}$.
+Then, for the law of large numbers
+\begin{equation*}
+    \frac{n_s}{n} \approx \mathbb{P}\left(\mathcal{W}_y\right)
+\end{equation*}
+In the same way we can notice that
+\begin{equation*}
+    \left\langle W \right\rangle = \frac{1}{n} \sum_{i=1}^n W\left(f_i\right) \approx \sum_f \mathbb{P}\left(f\right)W\left(f\right) = \sum_{f \in \mathcal{Z}_k} 1 = \left\lvert \mathcal{Z}_k \right\rvert
+\end{equation*}
+So we've found an estimator for the number of folds
+\begin{equation}
+    \hat{\mathcal{Z}_k} = \left\langle W \right\rangle \approx \left\lvert \mathcal{Z}_k \right\rvert
+\end{equation}

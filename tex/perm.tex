@@ -13,7 +13,7 @@ It is known that SAWs are fractals and their number on a given lattice will incr
 \subsection{Estimate the number of folds}
 For simplicity, let's assume that our SAW starts form the origin of our lattice.
 At any iteration $m$ we will have only $w_m$ possible moves, where $w$ represents a sort of weight of our chain.
-Let's call $W$ the weight of the total fold: a fold of length $k$ will have a weight
+Let's call $W$ the weight of the whole fold: a fold of length $k$ will have a weight
 \begin{equation*}
     W_k = \prod_{m=1}^k w_m
 \end{equation*}
@@ -36,4 +36,14 @@ In the same way we can notice that
 So we've found an estimator for the number of folds
 \begin{equation}
     \hat{\mathcal{Z}_k} = \left\langle W \right\rangle \approx \left\lvert \mathcal{Z}_k \right\rvert
+\end{equation}
+Using the \emph{batch mean method} we are also able to estimate the variance of our estimator.
+Subdividing the sequence of weights $W\left(f_1\right),\ldots,W\left(f_n\right)$ into $j$ blocks of length $l$ each, so $n = jl$.
+Defining the mean of the $b$-th block as
+\begin{equation*}
+    \mu_b = \frac{1}{l} \sum_{i = (b-1)l + 1}^{bl} W\left(f_i\right)
+\end{equation*}
+we can define our estimator for the variance as
+\begin{equation}
+    \hat{\sigma} = \sqrt{\frac{1}{j} \sum_{b = 1}^j \left(\mu_b - \left\langle W \right\rangle\right)^2}
 \end{equation}

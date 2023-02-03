@@ -1,7 +1,7 @@
 It has been shown that the \emph{HP} model is a NP hard problem, so it's very difficult to fold efficiently longer protein sequences.
 We will now discuss the Rosenbluth sampling method \cite{PERM}, which involves drawing successive steps of a random walk only from among acceptable points, which are points previously not visited.
 
-\subsection{Self-Avoiding Walks}
+\subsection{Self-Repelling Chains}
 In a random walk process on $\mathbb{G} = \mathbb{Z}^3$, each iteration consist in a step among one out of six equally likely directions.
 An analogue result is valid for $\mathbb{G} = \mathbb{Z}^2$ where we can choose one out of four equally likely directions.
 Our goal is to simulate the folding of a protein of length $k$ in the space $\mathbb{G}$ by doing a random walk of $k$ steps.
@@ -9,11 +9,16 @@ The first thing we can notice is that this cannot be a regular random walk proce
 The direct consequence is that each iteration of the random walk will have some constraints, e.g. all steps after the first one will have a forbidden direction (because they cannot back up).
 At this point, we can define as \emph{Self-Avoiding Walk} (SAW) a lattice path that does not visit the same point more than once.
 It is known that SAWs are fractals and their number on a given lattice will increase exponentially with the length \cite{madras1988pivot}.
+However, there's a quite important difference between a ``true'' SAW and the problem we're interested in.
+It has been proven \cite{trueSAW} that a SAW differentiates from a Self-Repelling Chain (polymer problem) by a statistical point of view.
+In fact, in an SRC, every possible configuration of the chain is equiprobable while this statement is not true for a SAW.
+The result is that, since the statistics of the SRC is equivalent to the $n \to 0$ limit of an $O(n)$ symmetric $\phi^4$ field theory, the upper critical dimensionality for it turns out to be 4 vs 2 for a SAW.
+We won't go deeper in this aspect because it is beyond the scope of this project.
 
 % PICTURE OF A RANDOM SAW
 
 \subsection{Estimate the number of folds}
-For simplicity, let's assume that our SAW starts form the origin of our lattice.
+For simplicity, let's assume that our SRC starts form the origin of our lattice.
 At any iteration $m$ we will have only $w_m$ possible moves, where $w$ represents a sort of weight of our chain.
 Let's call $W$ the weight of the whole fold: a fold of length $k$ will have a weight
 \begin{equation*}

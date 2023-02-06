@@ -4,7 +4,7 @@
 - [ ] Abstract
 - [ ] Introduction
 - [x] HP model
-- [ ] PERM theory
+- [x] PERM theory
 - [ ] R.L.
 - [ ] Results
 - [ ] Discussion

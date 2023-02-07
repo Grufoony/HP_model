@@ -3,10 +3,10 @@
 ## TODO
 - [ ] Abstract
 - [ ] Introduction
+- [ ] Proteins
 - [x] HP model
 - [x] PERM theory
 - [ ] R.L.
 - [ ] Results
 - [ ] Discussion
-- [ ] PERM testing
-- [ ] R.L. testing
+- [x] PERM testing

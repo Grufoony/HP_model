@@ -3,7 +3,7 @@
 ## TODO
 - [ ] Abstract
 - [ ] Introduction
-- [ ] Proteins
+- [x] Proteins
 - [x] HP model
 - [x] PERM theory
 - [ ] R.L.

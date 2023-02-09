@@ -33,13 +33,25 @@ Proteins have been found to be surprisingly adaptive to mutations that would be 
 This criticality is the basis of HP model that we'll discuss later.
 
 \subsection{Stability of the folded state}
-From a physical point of view we know that exists an equilibrium constant $k_{eq} = \frac{\left[\text{N}\right]}{\left[\text{U}\right]}$ such that the free energy at equilibrium is
+Calling $\left[U\right]$ the concentration of unfolded proteins and $\left[N\right]$ the concentration of proteins in their native state, from the detailed balance we can say that
 \begin{equation*}
-    \Delta G = G_{\text{N}} - G_{\text{U}} = k_BT\ln k_{eq}
+    \left[U\right]k_N = \left[N\right]k_U
 \end{equation*}
+Then, it must exist an equilibrium constant $k_{eq} = \frac{\left[\text{N}\right]}{\left[\text{U}\right]} = \frac{k_N}{k_U}$ such that the free energy at equilibrium is
+\begin{equation}
+    \Delta G = G_{\text{N}} - G_{\text{U}} = k_BT\ln k_{eq}
+    \label{eq:free_energy}
+\end{equation}
 The large heat capacity change upon protein unfolding causes there to be a temperature at which stability of the folded state is at a maximum: the stability of the folded state decreases at both higher and lower temperatures.
+
 Despite this definition, it is clear that the folding problem has an aspect more similar to
 \begin{equation*}
     \text{U} \leftarrow fast \rightarrow \text{I} \leftarrow slow \rightarrow \text{N}
 \end{equation*}
 where we've also to consider the intermediate state.
+Assuming that we start from the unfolded state, there will be only one fast process from that state to an intermediate or the native one.
+In this case, we can neglect the fast process and consider only the slower one and the detailed balance becomes
+\begin{equation*}
+    \left[I\right]k_N = \left[N\right]k_I
+\end{equation*}
+with a free energy analog to the Eq. (\ref{eq:free_energy}).

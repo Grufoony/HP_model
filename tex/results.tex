@@ -1,4 +1,4 @@
-Our test were performed mainly on two machines: one with an Intel® Core i7-7700 @ $3.6 \ GHz$ with $16 \ GB$ of RAM and one on an Amd® Ryzen 7 @ $3.6 \ GHz$ with $32 \ GB$ of RAM.
+Our test were performed mainly on two machines: one with an Intel® Core i7-7700 @ $3.6 \ GHz$ with $16 \ GB$ of RAM and one on an AMD® Ryzen 7 @ $3.6 \ GHz$ with $32 \ GB$ of RAM.
 \subsection{PERM algorithm}
 We want now to report an application of the PERM algorithm, made following the article's recipe \cite{PERM}.
 The goal of this algorithm is to estimate the total number of fold and then simulate a finite number of SRCs hoping to find the energy minimum.
@@ -10,7 +10,7 @@ In particular, we've found $(1.25 \pm 0.35) \times 10^8$ folds with an energy mi
 \begin{figure}[H]
     \centering
     \includegraphics[width=.75\textwidth]{./img/18_1.png}
-    \caption{\emph{The protein $HH(P)^5HH(P)^3H(P)^3HP$ has reached its energy minimum at -4 (a.u.) after $5 \times 10^6$ iterations.}}
+    \caption{\emph{The protein $HH(P)^5HH(P)^3H(P)^3HP$ has reached its energy minimum at -4 (a.u.) after $5 \times 10^6$ iterations ($\sim 20$ minutes).}}
     \label{fig:18_1}
 \end{figure}
 Another protein for which we've improved the result is $HHHP(PH)^3PP(HP)^3PH$, that has a length of 20 amino acids (see Fig. \ref{fig:20_2}).
@@ -18,7 +18,7 @@ In this case, we've found $(8.9688 \pm 0.0033) \times 10^{10}$ folds with an ene
 \begin{figure}[H]
     \centering
     \includegraphics[width=.75\textwidth]{./img/20_2.png}
-    \caption{\emph{The protein $HHHP(PH)^3PP(HP)^3PH$ has reached an energy minimum of -9 (a.u.) after $10^7$ iterations.}}
+    \caption{\emph{The protein $HHHP(PH)^3PP(HP)^3PH$ has reached an energy minimum of -9 (a.u.) after $10^7$ iterations ($\sim 45$ minutes).}}
     \label{fig:20_2}
 \end{figure}
 We've also tried to improve the protein $HPHPHHH(P)^3HHHH(P)^2HH$, that has a length of 20 amino acids (see Fig. \ref{fig:18_2}).
@@ -26,6 +26,6 @@ However, after about 5 hours of running time it has folded with an energy of -7 
 \begin{figure}[H]
     \centering
     \includegraphics[width=.75\textwidth]{./img/20_2.png}
-    \caption{\emph{The protein $HPHPHHH(P)^3HHHH(P)^2HH$ has reached an energy minimum of -7 (a.u.) after $10^8$ iterations.}}
+    \caption{\emph{The protein $HPHPHHH(P)^3HHHH(P)^2HH$ has reached an energy minimum of -7 (a.u.) after $10^8$ iterations ($\sim 5$ hours).}}
     \label{fig:18_2}
 \end{figure}

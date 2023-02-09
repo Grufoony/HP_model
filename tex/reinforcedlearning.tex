@@ -1,18 +1,72 @@
-Between the plethora of algorithms used to approximate the solution of the protein folding problem, one of the most promising is Reinforcement Learning.
+Between the plethora of agorithms used to approximate the solutions of the protein folding problem, one of the most promising is Reinforcement Learning.
 
-\subsection{Basics of Reinforcement Learning}
+\subsection{Basics of Reinforcemet Learning}
 
-RL is a kind of algorithm that is particularly effective when the program is able to interact with the system analyzed.
-The main structure of a RL algorithm is that of an \emph{agent} which interacts with an \emph{environment} and on the base of its actions gets as feedback a \emph{reward} and the new state of the environment.
-The goal of the model is to find the best \emph{policy} which is a function that returns the action that maximizes the reward at each state.
+RL is a kind of algorithm that is particularly effective when the program is able to interact with the system analyzed. The main structure of a RL algorithm is that of an \emph{agent} which interacts with an \emph{enviroment} and on the base of its actions gets as feedback a \emph{reward} and the new state of the enviroment. The goal of the model is to find the best \emph{policy} which is a function that returns the action that maximizes the reward at each state.
 
-% VOLENDO UNA FIGUROZZA DELL'ARTICOLO COL CLASSICCO LOOP RL
+\FloatBarrier
+\begin{figure} [ht!]
+    \centering
+    \includegraphics[scale = 0.5]{images/rl0.png}
+    \caption{Basic architecture of a Reinforcement Learning algorithm}
+    \label{fig:rl0}
+\end{figure}
+\FloatBarrier
 
 \subsubsection{Markov Decision Processes}
 
-MDPs are at the core of RL algorithms, since they describe a discrete-time stochastic control process.
-The name comes from the fact that they are an extension of the Markov chains, which are systems in which the evolution of a state depends only on the current state and not on its past.
-For more on the topic 
+MDPs are at the core of RL algorithms, since they describe a discrete-time stocastic control process. The name comes from the fact that they are an extention of the Markov chains, which are systems in which the evolution of a state depends only on the current state and not on its past. For more on the topic 
 %\cite{} qua ci vuole un articolozzo
 
-Describing 
+
+It is then necessary to descibe in Markov terms fig \ref{fig:rl0}. \emph{S} is the set of all possible states and \emph{A} is the set of all possible actions. The distribution of all possible rewards \emph{R}, can be obtained by every couple of states and actions (s, a) and for each possible adjacent couple of states there is a transition probability \emph{P} associated.
+
+%qua sarebbe il caso di metterci una nota forse, non so bene come si faccia pero' e' una cosa che va detta pero' non penso che meriti di essere inserita nel testo
+In the following paragraph we will use a common notation in RL which is that of using the capital letters to denote sets and the lowercase ones to denote single elements of the set
+
+\subsection{Choosing optimal policies}
+
+For each discrete instant t the system moves from a state $s_{0}$ to a state $s_{1}$ chossing an action $a$. After each action the agent recieves a reward $r$. In order to chose the optimal policy the algorithm must maximize the cumulative reward starting from a state $s_{0}$, defined as: 
+\begin{equation}
+\pi^{opt} = max(E(\sum_{t>0}r^{t*r|\pi}))
+\end{equation}
+It is worth mentioning that the expectation value has an additional constant called discount factor ($\gamma$). The expectation value for a single trajectory takes the form: $E(r) = r_{0} + \gamma r_{1} + \gamma^{2} r_{2} + ...$. From this expression it is clear that the role of the discount factor is that of giving more weight to closer rewards. This is justified due to intrinsic uncertainty that future rewards hold as a part of a MDP.
+
+To choose in which way the algorithm should try to reach the optimal policy, the designer can choose between two different approaches:
+
+\begin{itemize}
+    \item learning through \emph{State Value} function: this function returns the sum of all rewards recieved starting from a input state following a fixed policy. Using this function one can choose the best route through states
+    \item learning through \emph{Action Value} fucntion: this function returns the expected reward of taking a given action at a given state. If an algorithm uses the action value function it's called a \emph{Q-learning} algorithm    
+\end{itemize}
+
+\subsection{Q-Learning}
+
+Q-learning is an extremely useful tool to solve the problem of non deterministic MDPs. The algorithm exploits the Q-function to associate to each state action pair a scalar value (\emph{Q-values}). Q-values are defined as the sum of all discounted rewards assuming the Agent is in state s and performs action a, and then continues playing until the end of the episode following some policy $\pi$. An optimal Q-value is a Q-value that follows the optimal policy.
+
+\subsubsection{Bellman Equation and Optimal Q-values}
+
+The Bellman equation for Q-learning gives the conditions for equilibrium at correct Q-values, setting therefore a constraint to optimize the policy.
+\begin{equation}
+Q(s_{0}, a) = r(s_{0},a ) + \gamma  max_{a'}Q(s_1, a') 
+\end{equation}
+$Q(s_{0}, a)$ is the Q-value associated with the couple ($s_{0}$, $a$), $r(s_{0},a )$ is the reward associated with the same couple and the term $\gamma  max_{a'}Q(s_1, a')$ is the discounted maximum Q-value for the state-action pair at the successive instant.
+
+\subsubsection{General Q-learning algorithm}
+
+Q-learning algorithms follow more or less the same general structure (%questo e' plagiato quindi citalo!!!!!!!):
+\begin{itemize}
+    \item For each pair $(s, a)$ initialize $Q(s, a)$ to 0.
+    \item Repeat for each episode (complete iteration that stops at the terminal state)
+    \item Select the initial state $s$.
+    \item Choose a from s using policy derived from $Q$
+    \item Repeat (for each step of the episode)
+    \item Take action $a$, observe $r$, $s_{0}$ 
+    \item Update table entry: $Q(s,a) \leftarrow r(s,a) + \gamma max_{a_{0}}Q(s_{0},a_{0})$
+    \item $s \rightarrow{} s_{1}$ until new $s$ is terminal
+    \item Until the maximum number of episodes reached or the Q-values do not change
+\end{itemize}
+
+An additional parameter might be given to fix how fast the Q-values should change for each iteration. This parameter is called the \emph{Learning Rate} $\alpha \in [0,1]$. In this case the Bellman equation becomes:
+\begin{equation}
+Q(s_{0}, a) = (1-\alpha)Q(s_{0}, a) + \alpha(r(s_{0},a ) + \gamma  max_{a'}Q(s_1, a')) 
+\end{equation}

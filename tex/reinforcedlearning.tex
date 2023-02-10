@@ -88,15 +88,12 @@ Its general structure can be generalized to tridimensional folds with very few a
 This model was first proposed by \cite{czibula2011reinforcement}.
 
 Consider a protein s in the k-dimentional HP model $$s = \left(s_1, \ldots, s_k\right) \ , \ s_i \in \left\{H, P\right\} \ \ \forall i \in \left[1,\ldots,k\right]$$ in order to use RL to solve the problem we need to specify the various components of the RL algorithm: state space, action space, transition function and reward function.
-\\
-\\
+
 The state space \emph{S} (the agent's environment) is made of $\frac{4^{k}-1}{3}$ elements.
 A state is terminal (the process stops) if the number of state visited is $k-1$, so we expect it to visit each possible state. 
-\\
-\\
+
 The action space \emph{A} is four dimensional and sanctions that from each state the system can transition between four other states (Up, Down, Right, Left or $a_{0}, a_{1}, a_{2}, a_{3}$).
-\\
-\\
+
 The transition function $\delta$ returns the stochastic outcomes of taking each action in a specific state.
 So for each state is given the accessible sequences.
 $\delta$ is defined as:
@@ -118,6 +115,7 @@ We can now define the reward function $r(\varsigma_{n}|s_{1}, \varsigma_{1}, ...
     \item if the system reached a terminal state ($l = k-1$) $\rightarrow$ -E
     \item otherwise ("most common case") $\rightarrow$ 0.1
 \end{itemize}
-By defining the reward function in this way, it returns the reward recieved by the agent in the state $\varsigma_{l}$ after it had visited all the previous states. With the reward function it is now clear that the goal of maximizing the rewards on a path from the starting state to the terminal one is equivalent of that of finding self-avoiding random walks that minimize the associated energy.
+By defining the reward function in this way, it returns the reward received by the agent in the state $\varsigma_{l}$ after it had visited all the previous states.
+With the reward function it is now clear that the goal of maximizing the rewards on a path from the starting state to the terminal one is equivalent of that of finding self-avoiding random walks that minimize the associated energy.
 
 

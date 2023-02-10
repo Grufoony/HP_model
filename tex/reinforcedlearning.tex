@@ -1,6 +1,6 @@
 Between the plethora of agorithms used to approximate the solutions of the protein folding problem, one of the most promising is Reinforcement Learning.
 
-\subsection{Basics of Reinforcemet Learning}
+\subsection{Basics of Reinforcemet Learning} \label{BRL}
 
 RL is a kind of algorithm that is particularly effective when the program is able to interact with the system analyzed. The main structure of a RL algorithm is that of an \emph{agent} which interacts with an \emph{enviroment} and on the base of its actions gets as feedback a \emph{reward} and the new state of the enviroment. The goal of the model is to find the best \emph{policy} which is a function that returns the action that maximizes the reward at each state.
 
@@ -24,7 +24,7 @@ It is then necessary to descibe in Markov terms fig \ref{fig:rl0}. \emph{S} is t
 %qua sarebbe il caso di metterci una nota forse, non so bene come si faccia pero' e' una cosa che va detta pero' non penso che meriti di essere inserita nel testo
 In the following paragraph we will use a common notation in RL which is that of using the capital letters to denote sets and the lowercase ones to denote single elements of the set
 
-\subsection{Choosing optimal policies}
+\subsubsection{Choosing optimal policies}
 
 For each discrete instant t the system moves from a state $s_{0}$ to a state $s_{1}$ chossing an action $a$. After each action the agent recieves a reward $r$. In order to chose the optimal policy the algorithm must maximize the cumulative reward starting from a state $s_{0}$, defined as: 
 \begin{equation}
@@ -39,7 +39,7 @@ To choose in which way the algorithm should try to reach the optimal policy, the
     \item learning through \emph{Action Value} fucntion: this function returns the expected reward of taking a given action at a given state. If an algorithm uses the action value function it's called a \emph{Q-learning} algorithm    
 \end{itemize}
 
-\subsection{Q-Learning}
+\subsubsection{Q-Learning}
 
 Q-learning is an extremely useful tool to solve the problem of non deterministic MDPs. The algorithm exploits the Q-function to associate to each state action pair a scalar value (\emph{Q-values}). Q-values are defined as the sum of all discounted rewards assuming the Agent is in state s and performs action a, and then continues playing until the end of the episode following some policy $\pi$. An optimal Q-value is a Q-value that follows the optimal policy.
 
@@ -70,3 +70,31 @@ An additional parameter might be given to fix how fast the Q-values should chang
 \begin{equation}
 Q(s_{0}, a) = (1-\alpha)Q(s_{0}, a) + \alpha(r(s_{0},a ) + \gamma  max_{a'}Q(s_1, a')) 
 \end{equation}
+
+\subsection{Reinforcement Learning applied to the HP model}
+
+The model described is able to solve bidimensional folds for a protein approximated with the HP model. Its general structure can be generalized to tridimensional folds with very few adjustments, making it a usefull tool suited for this specific problem. This model was fist proposed by \cite{czibula2011reinforcement}.
+\\
+\\
+Consider a protein s in the k-dimentional HP model $s = \left(s_1, \ldots, s_k\right) \ , \ s_i \in \left\{H, P\right\} \ \ \forall i \in \left[1,\ldots,k\right]$, in order to use RL to solve the problem we need to specify the various components of the RL algorithm: state space, action space, transition function and reward function.
+
+The state space \emph{S} (the agent’s environment) is made of $\frac{4^{k}-1}{3}$ elements. A state is terminal (the process stops) if the number of state visited is k-1, so we expect it to visit each possible state. 
+
+The action space \emph{A} is four dimensional and sanctions that from each state the system can transition between four other states (Up, Down, Right, Left or $a_{0}, a_{1}, a_{2}, a_{3}$).
+
+The transition function $\delta$ returns the stochastic outcomes of taking each action in a specific state. So for each state is gives the accessible sequences. $\delta$ is defined as:
+\begin{equation}
+\delta(s_{i},a{l})=s_{4 \dot i - 3 + l} \ \ \ l \in [1, 4] \ \ \ \forall i \in [1,\frac{4^{k}-1}{3}]
+\end{equation}
+Since there is no reason for initial bias between states the neibourghs are all equiprobable with probability of transition $\frac{1}{4}$.
+
+More stuff needs to be added to this part:
+
+reward function 
+
+learning process
+
+results
+
+very brief intro to deep q learning
+

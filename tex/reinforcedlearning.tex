@@ -101,18 +101,18 @@ The action space \emph{A} is four dimensional and sanctions that from each state
 The transition function $\delta$ returns the stochastic outcomes of taking each action in a specific state.
 So for each state is given the accessible sequences.
 $\delta$ is defined as:
-\begin{equation}
+\begin{equation} \label{delta}
 \delta(s_{i},a{l})=s_{4 \dot i - 3 + l} \ \ \ l \in [1, 4] \ \ \ \forall i \in [1,\frac{4^{k}-1}{3}]
 \end{equation}
 Since there is no reason for initial bias between states the neighbors are all equiprobable with probability of transition $\frac{1}{4}$.
 
-More stuff needs to be added to this part:
+Before defining the reward function it is appropriate to spend a few words to visualize how the RL algorithm described so far models the protein and its folds. Consider a complete episode and its associated the path $\varsigma = (\varsigma_{0}, \varsigma_1, ... , \varsigma_{k-1}) \ \ \varsigma_{i}$. To this path there will be an action sequence associated $a_{\varsigma} = (a_{\varsigma_{0}}, a_{\varsigma_{1}}, ..., a_{\varsigma_{k-2}})$. This sequence of actions is linked to the path since each element of both sequences is linked by eq \ref{delta}. $a_{\varsigma}$ can be viewed as a possible bidimensional structure of the protein sequence. Therefore we can now associate to a certain action sequence, and by extention to a path $\varsigma$, the energy defined in sec %qua ci vuole la reference alla sezione. 
 
-reward function 
-
-learning process
-
-results
-
-very brief intro to deep q learning
+We can now define the reward function $r(\varsigma_{n}|s_{1}, \varsigma_{1}, ..., \varsigma_{l-1})$:
+\begin{itemize}
+    \item if $a_{\varsigma}$ is not valid $\rightarrow$ 0.01
+    \item if the system reached a terminal state ($l = k-1$) $\rightarrow$ -E
+    \item otherwise ("most common case") $\rightarrow$ 0.1
+\end{itemize}
+By defining the reward function in this way, it returns the reward recieved by the agent in the state $\varsigma_{l}$ after it had visited all the previous states. With the reward function it is now clear that the goal of maximizing the rewards on a path from the starting state to the terminal one is equivalent of that of finding self-avoiding random walks that minimize the associated energy.
 

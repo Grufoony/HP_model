@@ -1,12 +1,12 @@
 # HP_model
 
 ## TODO
-- [ ] Abstract
-- [ ] Introduction
+- [x] Abstract
+- [x] Introduction
 - [x] Proteins
 - [x] HP model
 - [x] PERM theory
 - [ ] R.L.
-- [ ] Results
+- [x] Results
 - [ ] Discussion
 - [x] PERM testing

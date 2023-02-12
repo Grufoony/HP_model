@@ -109,11 +109,11 @@ This sequence of actions is linked to the path since each element of both sequen
 $a_{\varsigma}$ can be viewed as a possible bidimensional structure of the protein sequence.
 Therefore, we can now associate to a certain action sequence, and by extension to a path $\varsigma$, the energy defined in section \ref{sec:model}. 
 
-We can now define the reward function $r(\varsigma_{n}|s_{1}, \varsigma_{1}, ..., \varsigma_{l-1})$:
+We can now define the reward function $r(\varsigma_{n}|s_{1}, \varsigma_{1}, \ldots, \varsigma_{l-1})$:
 \begin{itemize}
     \item if $a_{\varsigma}$ is not valid $\rightarrow$ 0.01
-    \item if the system reached a terminal state ($l = k-1$) $\rightarrow$ -E
-    \item otherwise ("most common case") $\rightarrow$ 0.1
+    \item if the system reached a terminal state $(l = k-1)$ $\rightarrow$ -E
+    \item otherwise (``most common case'') $\rightarrow$ 0.1
 \end{itemize}
 By defining the reward function in this way, it returns the reward received by the agent in the state $\varsigma_{l}$ after it had visited all the previous states.
 With the reward function it is now clear that the goal of maximizing the rewards on a path from the starting state to the terminal one is equivalent of that of finding self-avoiding random walks that minimize the associated energy.

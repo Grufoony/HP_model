@@ -1,8 +1,18 @@
-Bioinformatics is conceptualizing biology in terms of molecules and applying ``informatics techniques'' to understand and organize the information associated with these molecules, on a large scale \cite{bioinfo}.
-The aims of bioinformatics are multiple.
-Firstly, well-organized data allow researches to access existing information and to submit new entries as they are produced.
-Secondly, it develops tool and resources useful for the analysis of these data.
-The development of these tools requires a lot of knowledge in biology, informatic and also physics and mathematics.
+Chain molecules are a typical problem of statistical mechanics \cite{statisticalmechanics}.
+The main mathematical approach applied to chain molecules is the statistical mechanics framework, which usually applies statistical methods and probability theory to large assemblies of microscopic entities.
+In our case, the chain represent the system, and we're interested in the interaction within its parts.
+If we set up the problem considering the system in a canonical ensemble, which means that it can exchange energy with the universe but matter, we can write the \emph{partition function} as
+\begin{equation*}
+    Z = \sum_i e^{-\beta\epsilon_i}
+\end{equation*}
+where $\epsilon_i$ is the energy of the $i$-th microstate and $\beta = \frac{1}{k_BT}$.
+From that we can define the \emph{Helmholtz' free energy} of the system
+\begin{equation*}
+    F = -\frac{1}{\beta} \ln Z
+\end{equation*}
+and we know that the stable conformation of the chain will minimize this energy.
+The consequence of that approach is that if we knew all the microstates (possible conformations of the chain) of the system and their energies, we would be able to compute all thermodynamic potentials.
+Unfortunately, we are not able to compute every single microstate with its energy for long protein: the best we can do, as we will see, is to estimate the number of possible folds or try to find the global minima (solution) of the free energy.
 
 In particular, this project will focus on the protein folding problem.
 How protein folds is a vital process that can be useful for a lot of purposes, from bioengineering to the medical applications.

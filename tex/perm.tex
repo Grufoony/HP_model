@@ -8,7 +8,6 @@ Our goal is to simulate the folding of a protein of length $k$ in the space $\ma
 The first thing we can notice is that this cannot be a regular random walk process because the fold is not allowed to cross itself or back up on itself at any iteration.
 The direct consequence is that each iteration of the random walk will have some constraints, e.g. all steps after the first one will have at least one forbidden direction (because they cannot back up).
 At this point, we can define as \emph{Self-Avoiding Walk} (SAW) a lattice path that does not visit the same point more than once.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=.75\textwidth]{./img/src_example.png}
@@ -17,7 +16,6 @@ At this point, we can define as \emph{Self-Avoiding Walk} (SAW) a lattice path t
                     The red dashed lines represents the $H$-$H$ contacts.}}
     \label{fig:src_example}
 \end{figure}
-
 It is known that SAWs are fractals and their number on a given lattice will increase exponentially with the length \cite{madras1988pivot}.
 However, there's a quite important difference between a ``true'' SAW and the problem we're interested in.
 It has been proven \cite{trueSAW} that a SAW differentiates from a Self-Repelling Chain (polymer problem, see Fig. \ref{fig:src_example}) by a statistical point of view.
@@ -53,6 +51,7 @@ So we've found an estimator for the number of folds
 \begin{equation}
     \hat{\mathcal{Z}_k} = \left\langle W \right\rangle \approx \left\lvert \mathcal{Z}_k \right\rvert
 \end{equation}
+Notice that this estimator does not give the number of \emph{unique} folds.
 Using the \emph{batch mean method} we are also able to estimate the variance of our estimator.
 Subdividing the sequence of weights $W\left(f_1\right),\ldots,W\left(f_n\right)$ into $j$ blocks of length $l$ each, so $n = jl$.
 Defining the mean of the $b$-th block as

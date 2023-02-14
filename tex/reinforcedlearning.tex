@@ -9,7 +9,7 @@ The goal of the model is to find the best \emph{policy} which is a function that
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale = 0.5]{img/rl0.png}
+    \includegraphics[width=.75\textwidth]{img/rl0.png}
     \caption{Basic architecture of a Reinforcement Learning algorithm}
     \label{fig:rl0}
 \end{figure}
@@ -46,12 +46,12 @@ To choose in which way the algorithm should try to reach the optimal policy, the
         If an algorithm uses the action value function it's called a \emph{Q-learning} algorithm    
 \end{itemize}
 
-\subsubsection{Q-Learning}
+\subsubsection{Q-Learning} \label{Qlearning}
 
 Q-learning is an extremely useful tool to solve the problem of non-deterministic MDPs.
 The algorithm exploits the Q-function to associate to each state action pair a scalar value (\emph{Q-values}).
 Q-values are defined as the sum of all discounted rewards assuming the Agent is in state s and performs action a, and then continues playing until the end of the episode following some policy $\pi$.
-An optimal Q-value is a Q-value that follows the optimal policy.
+An optimal Q-value is a Q-value that follows the optimal policy. All Q-values are stored in the so called \emph{Q-table}.
 
 \subsubsection{Bellman Equation and Optimal Q-values}
 
@@ -61,7 +61,7 @@ Q(s_{0}, a) = r(s_{0},a ) + \gamma  \max_{a'}\left\{Q(s_1, a')\right\}
 \end{equation}
 $Q(s_{0}, a)$ is the Q-value associated with the couple ($s_{0}$, $a$), $r(s_{0},a )$ is the reward associated with the same couple and the term $\gamma \max_{a'}\left\{Q(s_1, a')\right\}$ is the discounted maximum Q-value for the state-action pair at the successive instant.
 
-\subsubsection{General Q-learning algorithm}
+\subsubsection{General Q-learning algorithm} \label{GQL}
 
 Q-learning algorithms follow more or less the same general structure
 \begin{itemize}
@@ -118,4 +118,34 @@ We can now define the reward function $r(\varsigma_{n}|s_{1}, \varsigma_{1}, \ld
 By defining the reward function in this way, it returns the reward received by the agent in the state $\varsigma_{l}$ after it had visited all the previous states.
 With the reward function it is now clear that the goal of maximizing the rewards on a path from the starting state to the terminal one is equivalent of that of finding self-avoiding random walks that minimize the associated energy.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.75\textwidth]{img/rl1.png}
+    \caption{Visualization of the link between actions and configuration. In the figure on the right the actions are: Up, Left, Down. In the figure on the right the actions are: Left, Up, Right} \cite{czibula2011reinforcement}
+    \label{fig:rl0}
+\end{figure}
+\subsection{Learning Phase}
 
+For learning it is convenient to use Q-learning. It can be proven that during the training process the values of the Q-table converge to the true values (for the proof see \cite{czibula2011reinforcement}), so it is guaranteed that at the end of the training process the values found will be close to the true values.
+After the training the agent acts with a greedy mechanism until it reaches a solution. The adjective \emph{greedy} in this context means that at each step the system transitions to a neighbour state with maximum Q-value.
+
+It is now important to notice that this process might produce more than one optimal policies. In this case, as far as the bidimensional folding goes, the predicted structures will have the same free energy.
+
+\subsection{Beyond Reinforcement Learning}
+
+From what seen so far in this section Q-learning looks like a good way to approach protein folding in the HP model approximation. Despite this, simple Q-learning algorithms such as the one described in section \ref{GQL} are inadequate compared to the state of the art model.
+
+\subsubsection{Deep Q-Learning}
+
+The subject of \emph{Deep Q-learning} is far too complicated and wide to be treated to its full extend in this article, therefore this section contains only its intuitive idea and the main reasons why it ouperforms simple Q-learning.
+
+As we have seen in section \ref{Qlearning} a Q-learning algorithm learns through the process of optimizing the Q-values, which are the best action for a given state given all the previous actions. Deep Q-learning exploits the Neural Networks to estimate cluster of Q-values. In this case there no longer is a Q-table, but a Deep Neural Network estimating many Q-values at the same time, saving resources. 
+
+Since Deep Neural Networks are currently the best statistical estimators available, this kind of algorithm performs extremely well. The price to pay for such improvements is that Deep Neural Networks operate as \textit{black boxes}, meaning that it is often impossible to understand the optimization process for complex problems such as this one
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.75\textwidth]{img/rl2.png}
+    \caption{Difference between Q-learning and Deep Q-learning visualized \cite{jafari2020solving}
+    \label{fig:rl2}
+\end{figure}a

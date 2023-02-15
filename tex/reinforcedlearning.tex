@@ -17,33 +17,36 @@ The goal of the model is to find the best \emph{policy} which is a function that
 \subsubsection{Markov Decision Processes}
 
 MDPs are at the core of RL algorithms, since they describe a discrete-time stochastic control process.
-The name comes from the fact that they are an extension of the Markov chains, which are systems in which the evolution of a state depends only on the current state and not on its past. (For more on the topic \cite{bellman1957markovian})
+The name comes from the fact that they are an extension of Markov's chains, which are systems in which the evolution of a state depends only on the current state and not on its past.
+For more on the topic see \cite{bellman1957markovian}.
 
 
-It is then necessary to describe in Markov terms fig \ref{fig:rl0}.
+It is then necessary to describe in Markov terms Fig. \ref{fig:rl0}.
 \emph{S} is the set of all possible states and \emph{A} is the set of all possible actions.
-The distribution of all possible rewards \emph{R}, can be obtained by every couple of states and actions (s, a) and for each possible adjacent couple of states there is a transition probability \emph{P} associated.
+The distribution of all possible rewards \emph{R}, can be obtained by every couple of states and actions (\emph{s, a}) and for each possible adjacent couple of states there is a transition probability \emph{P} associated.
 
 In the following paragraph we will use a common notation in RL which is that of using the capital letters to denote sets and the lowercase ones to denote single elements of the set
 
 \subsubsection{Choosing optimal policies}
 
-For each discrete instant t the system moves from a state $s_{0}$ to a state $s_{1}$ choosing an action $a$. After each action the agent receives a reward $r$. 
+For each discrete instant t the system moves from a state $s_{0}$ to a state $s_{1}$ choosing an action $a$.
+After each action the agent receives a reward $r$. 
 In order to choose the optimal policy the algorithm must maximize the cumulative reward starting from a state $s_{0}$, defined as: 
 \begin{equation}
 \pi^{opt} = \max\left\{E\left(\sum_{t>0}r^{t*r|\pi}\right)\right\}
 \end{equation}
 It is worth mentioning that the expectation value has an additional constant called discount factor ($\gamma$).
 The expectation value for a single trajectory takes the form: $E(r) = r_{0} + \gamma r_{1} + \gamma^{2} r_{2} + \ldots$.
-From this expression it is clear that the role of the discount factor is that of giving more weight to closer rewards. This is justified due to intrinsic uncertainty that future rewards hold as a part of an MDP.
+From this expression it is clear that the role of the discount factor is that of giving more weight to closer rewards.
+This is justified due to intrinsic uncertainty that future rewards hold as a part of an MDP.
 
 To choose in which way the algorithm should try to reach the optimal policy, the designer can choose between two different approaches:
 
 \begin{itemize}
     \item learning through \emph{State Value} function: this function returns the sum of all rewards received starting from an input state following a fixed policy.
-        Using this function one can choose the best route through states
+        Using this function one can choose the best route through states;
     \item learning through \emph{Action Value} function: this function returns the expected reward of taking a given action at a given state.
-        If an algorithm uses the action value function it's called a \emph{Q-learning} algorithm    
+        If an algorithm uses the action value function it's called a \emph{Q-learning algorithm}.    
 \end{itemize}
 
 \subsubsection{Q-Learning} \label{Qlearning}
@@ -59,7 +62,7 @@ The Bellman equation for Q-learning gives the conditions for equilibrium at corr
 \begin{equation}
 Q(s_{0}, a) = r(s_{0},a ) + \gamma  \max_{a'}\left\{Q(s_1, a')\right\}
 \end{equation}
-$Q(s_{0}, a)$ is the Q-value associated with the couple ($s_{0}$, $a$), $r(s_{0},a )$ is the reward associated with the same couple and the term $\gamma \max_{a'}\left\{Q(s_1, a')\right\}$ is the discounted maximum Q-value for the state-action pair at the successive instant.
+$Q(s_{0}, a)$ is the Q-value associated with the couple ($s_{0}$, $a$), $r(s_{0},a )$ is the reward associated with the same couple and the term $$\gamma \max_{a'}\left\{Q(s_1, a')\right\}$$ is the discounted maximum Q-value for the state-action pair at the successive instant.
 
 \subsubsection{General Q-learning algorithm} \label{GQL}
 
@@ -98,14 +101,14 @@ The transition function $\delta$ returns the stochastic outcomes of taking each 
 So for each state is given the accessible sequences.
 $\delta$ is defined as:
 \begin{equation} \label{delta}
-\delta(s_{i},a{l})=s_{4 \dot i - 3 + l} \ \ \ l \in [1, 4] \ \ \ \forall i \in \left[1,\frac{4^{k}-1}{3}\right]
+\delta(s_{i},a_{l})=s_{4 \dot i - 3 + l} \ \ \ l \in [1, 4] \ \ \ \forall i \in \left[1,\frac{4^{k}-1}{3}\right]
 \end{equation}
 Since there is no reason for initial bias between states the neighbors are all equiprobable with probability of transition $\frac{1}{4}$.
 
 Before defining the reward function it is appropriate to spend a few words to visualize how the RL algorithm described so far models the protein and its folds.
 Consider a complete episode and its associated the path $\varsigma = (\varsigma_{0}, \varsigma_1, \ldots , \varsigma_{k-1}) \ \ \varsigma_{i}$.
 To this path there will be an action sequence associated $a_{\varsigma} = (a_{\varsigma_{0}}, a_{\varsigma_{1}}, \ldots , a_{\varsigma_{k-2}})$.
-This sequence of actions is linked to the path since each element of both sequences appears in equation \ref{delta}.
+This sequence of actions is linked to the path since each element of both sequences appears in Eq. (\ref{delta}).
 $a_{\varsigma}$ can be viewed as a possible bidimensional structure of the protein sequence.
 Therefore, we can now associate to a certain action sequence, and by extension to a path $\varsigma$, the energy defined in section \ref{sec:model}. 
 
@@ -152,7 +155,7 @@ The price to pay for such improvements is that Deep Neural Networks operate as \
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.75\textwidth]{img/rl2.png}
+    \includegraphics[width=.5\textwidth]{img/rl2.png}
     \caption{\emph{Difference between Q-learning and Deep Q-learning visualized \cite{jafari2020solving}.}}
     \label{fig:rl2}
 \end{figure}

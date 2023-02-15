@@ -1,6 +1,6 @@
 Chain molecules are a typical problem of statistical mechanics \cite{statisticalmechanics}.
 The main mathematical approach applied to chain molecules is the statistical mechanics framework, which usually applies statistical methods and probability theory to large groups of microscopic entities.
-In our case, the chain represents the system, and we're interested in the interactions within its parts.
+In our case, the chain represents the system, and we're interested in the interactions between its beams.
 If we set up the problem considering the system in a canonical ensemble, which means that it can only exchange energy with the universe, we can write the \emph{partition function} as
 \begin{equation*}
     Z = \sum_i e^{-\beta\epsilon_i}
@@ -18,11 +18,11 @@ In particular, this project will focus on the protein folding problem.
 How protein folds is a vital process that can be useful for a lot of purposes, from bioengineering to the medical applications.
 Understanding how proteins fold may help us to cure diseases like Alzheimer or anemia, in which proteins start to not fold correctly, treat virus infections and design more efficient drugs \cite{PERM}. 
 Moreover, having a tool which allows us to simulate the folding process can be useful in order to understand what happens when a mutation occurs in a protein.
-There are many reasons for mutations, including the radiation exposure and the environment itself \cite{zanichelli}. A mutation is not always a bad thing because evolution starts from them, and we may also force some mutations in laboratory in order to get a specific result.
+There are many reasons for mutations, including the radiation exposure and the environment itself \cite{zanichelli}. A mutation is not always a bad thing because evolution starts from them, and we may also force some mutations in laboratory in order to get specific results.
 
 The aim of this project is to report the main results in the developing of the HP model for protein folding.
 In order to do so, we'll first illustrate what the HP model is.
 Next, we will analyze two main approaches to this problem.
 The first one is a \emph{brute force} approach, that allows us to understand the properties of a protein by computing all its possible configurations.
-However, a brute force approach is typically the last thing one would do.
+However, a brute force approach is typically the last thing one would like to do.
 An alternative will be the Reinforcement Learning method that using the so-called \emph{Deep Neural Networks} (DNNs) it's able to find the minimum of the free energy in a tolerable amount of time.

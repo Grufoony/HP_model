@@ -10,7 +10,7 @@ The goal of the model is to find the best \emph{policy} which is a function that
 \begin{figure}[H]
     \centering
     \includegraphics[width=.75\textwidth]{img/rl0.png}
-    \caption{Basic architecture of a Reinforcement Learning algorithm}
+    \caption{\emph{Basic architecture of a Reinforcement Learning algorithm.}}
     \label{fig:rl0}
 \end{figure}
 
@@ -121,31 +121,38 @@ With the reward function it is now clear that the goal of maximizing the rewards
 \begin{figure}[H]
     \centering
     \includegraphics[width=.75\textwidth]{img/rl1.png}
-    \caption{Visualization of the link between actions and configuration. In the figure on the right the actions are: Up, Left, Down. In the figure on the right the actions are: Left, Up, Right} \cite{czibula2011reinforcement}
-    \label{fig:rl0}
+    \caption{\emph{Visualization of the link between actions and configuration. In the figure on the right the actions are: Up, Left, Down. In the figure on the right the actions are: Left, Up, Right \cite{czibula2011reinforcement}.}}
+    \label{fig:rl1}
 \end{figure}
 \subsection{Learning Phase}
 
-For learning it is convenient to use Q-learning. It can be proven that during the training process the values of the Q-table converge to the true values (for the proof see \cite{czibula2011reinforcement}), so it is guaranteed that at the end of the training process the values found will be close to the true values.
-After the training the agent acts with a greedy mechanism until it reaches a solution. The adjective \emph{greedy} in this context means that at each step the system transitions to a neighbour state with maximum Q-value.
+For learning, it is convenient to use Q-learning.
+It can be proven that during the training process the values of the Q-table converge to the true values (for the proof see \cite{czibula2011reinforcement}), so it is guaranteed that at the end of the training process the values found will be close to the true values.
+After the training the agent acts with a greedy mechanism until it reaches a solution.
+The adjective \emph{greedy} in this context means that at each step the system transitions to a neighbor state with maximum Q-value.
 
-It is now important to notice that this process might produce more than one optimal policies. In this case, as far as the bidimensional folding goes, the predicted structures will have the same free energy.
+It is now important to notice that this process might produce more than one optimal policies.
+In this case, as far as the bidimensional folding goes, the predicted structures will have the same free energy.
 
 \subsection{Beyond Reinforcement Learning}
 
-From what seen so far in this section Q-learning looks like a good way to approach protein folding in the HP model approximation. Despite this, simple Q-learning algorithms such as the one described in section \ref{GQL} are inadequate compared to the state of the art model.
+From what seen so far in this section Q-learning looks like a good way to approach protein folding in the HP model approximation.
+Despite this, simple Q-learning algorithms such as the one described in section \ref{GQL} are inadequate compared to the state-of-the-art model.
 
 \subsubsection{Deep Q-Learning}
 
-The subject of \emph{Deep Q-learning} is far too complicated and wide to be treated to its full extend in this article, therefore this section contains only its intuitive idea and the main reasons why it ouperforms simple Q-learning.
+The subject of \emph{Deep Q-learning} is far too complicated and wide to be treated to its full extend in this article, therefore this section contains only its intuitive idea and the main reasons why it outperforms simple Q-learning.
 
-As we have seen in section \ref{Qlearning} a Q-learning algorithm learns through the process of optimizing the Q-values, which are the best action for a given state given all the previous actions. Deep Q-learning exploits the Neural Networks to estimate cluster of Q-values. In this case there no longer is a Q-table, but a Deep Neural Network estimating many Q-values at the same time, saving resources. 
+As we have seen in section \ref{Qlearning} a Q-learning algorithm learns through the process of optimizing the Q-values, which are the best action for a given state given all the previous actions.
+Deep Q-learning exploits the Neural Networks to estimate cluster of Q-values.
+In this case there no longer is a Q-table, but a Deep Neural Network estimating many Q-values at the same time, saving resources. 
 
-Since Deep Neural Networks are currently the best statistical estimators available, this kind of algorithm performs extremely well. The price to pay for such improvements is that Deep Neural Networks operate as \textit{black boxes}, meaning that it is often impossible to understand the optimization process for complex problems such as this one
+Since Deep Neural Networks are currently the best statistical estimators available, this kind of algorithm performs extremely well.
+The price to pay for such improvements is that Deep Neural Networks operate as \textit{black boxes}, meaning that it is often impossible to understand the optimization process for complex problems such as this one.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=.75\textwidth]{img/rl2.png}
-    \caption{Difference between Q-learning and Deep Q-learning visualized \cite{jafari2020solving}
+    \caption{\emph{Difference between Q-learning and Deep Q-learning visualized \cite{jafari2020solving}.}}
     \label{fig:rl2}
-\end{figure}a
+\end{figure}

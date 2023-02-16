@@ -1,17 +1,23 @@
 As we saw, protein folding is actually a hard task.
 The application of PERM algorithm gave better results by incrementing the number of iteration, but required a lot of computational time, e.g. 5 hours for $10^8$ iterations of Fig. \ref{fig:18_2}.
-Then, this approach is not sustainable because the result's uncertainty will grow up as the protein length increases.
+Furthermore, the application of the \emph{CPSP-tools} library managed to compute the energies in the 3D case, where the other algorithm failed.
+However, this approach is not sustainable because the result's uncertainty will grow up as the protein length increases and even well-optimized brute force algorithm will suffer the curse of dimensionality.
 
 % PARTE DI ISACCO
 
 Finally, a solution to the HP model should be searched into the Artificial Intelligence field.
-In fact, brute force algorithm undergo the curse of dimensionality, being useful only for short proteins.
-On the other hand, solutions based on deep reinforcement learning, and in general in the A.I. field, are more sustainable and give better results.
+Solutions based on deep reinforcement learning, and in general in the A.I. field, are more sustainable and give better results.
 Bioinformatics is conceptualizing biology in terms of molecules and applying ``informatics techniques'' to understand and organize the information associated with these molecules, on a large scale \cite{bioinfo}.
 The aims of bioinformatics are multiple.
 Firstly, well-organized data allow researches to access existing information and to submit new entries as they are produced.
 Secondly, it develops tool and resources useful for the analysis of these data.
 The development of these tools requires a lot of knowledge in biology, informatic and also physics and mathematics.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.75\textwidth]{./img/alphafold.png}
+    \caption{\emph{Protein folding algorithms' accuracy through time \cite{alphafold}.}}
+    \label{fig:alphafold}
+\end{figure}
 Two example of intelligences that are giving many good results are AlphaFold and AlphaFold2 by Google.
-In particular, the second one reached a precision level comparable to the experimental one.
+In particular, the second one reached a precision level comparable to the experimental one, as wee can see from Fig \ref{fig:alphafold}.
 The future of this topic seems to be linked to research whose goal is to expand the protein databases underlying these intelligences.

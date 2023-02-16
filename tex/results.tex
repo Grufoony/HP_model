@@ -1,5 +1,5 @@
 Our test were performed mainly on two machines: one with an Intel® Core i7-7700 @ $3.6 \ GHz$ with $16 \ GB$ of RAM and one on an AMD® Ryzen 7 @ $3.6 \ GHz$ with $32 \ GB$ of RAM.
-\subsection{PERM algorithm}
+\subsection{Monte Carlo PERM}
 We want now to report an application of the PERM algorithm, made following the article's recipe \cite{PERM}.
 The goal of this algorithm is to estimate the total number of fold and then simulate a finite number of SRCs hoping to find the energy minimum.
 In the article the number of iterations is set to be $10^5$ for all proteins and the result is that they found only local minima, which are intermediate states.
@@ -30,7 +30,7 @@ However, after about 5 hours of running time it has folded with an energy of -7 
     \label{fig:18_2}
 \end{figure}
 
-\subsection{Constraint-based Protein Structure Prediction}
+\subsection{Constraint-based Protein Structure Prediction PERM}
 In the 2D case we showed that increasing the number of iterations resulted in better estimate of the energy.
 However, the previous algorithm is not able to give significant outputs in the 3D case.
 We tried so to estimate the energy in the 3D case with another algorithm, which is also based on constraint programming.

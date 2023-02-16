@@ -65,3 +65,60 @@ All proteins tested converged to their minima, as we can see in Fig. \ref{fig:cp
     \caption{\emph{Four proteins of length 18 (a), 20 (b), 24 (c) and 25 (d).}}
     \label{fig:cpsp}
 \end{figure}
+
+
+\subsection{Reinforcement Learning}
+
+Due to the fact that Reinforcement Learning code is extremely hard to write and optimize performance-wise, this section will only report the main results obtained with DRL algorithms by \cite{jafari2020solving}. These results are enough to show that DRL outperforms PERM and more in general bruteforce methods
+
+\FloatBarrier
+\begin{table}[ht!]
+\centering
+\begin{tabular}[c]{ |p{6cm}||p{3cm}||p{3cm}|}
+ \hline
+ \multicolumn{3}{|c|}{Performance} \\
+ \hline
+ Sequence  & PERM & DRL\\
+ \hline
+(HP)2PH2PHP
+2HPH2P2HPH & Less than a second & Less than a second\\
+ \hline
+P2HP2H2P4H
+2P4H2P4H2 & 6 seconds  & Less than a second\\
+ \hline
+P3H2P2H2P5H7P
+2H2P4H2P2HP2 & Less than a second & Less than a second\\
+\hline
+P2HP2H2P2H2P5H10
+P6H2P2H2P2HP2H5 & 3 minutes & 25 seconds\\
+\hline
+H2(PH)3PH4PHP3
+HP3HP4HP3HP3HP
+H4(PH)3PH2 & 3 seconds & Less than a second\\
+\hline
+P2H3PH8P3H10PH
+
+P3H12P4H6PH2PHP & 7 seconds & Less than a second\\
+\hline 
+H12(PH)2(P2H2)2P2
+H(P2H2)2P2HPHPH12 & 78 hours & 48 minutes\\
+\hline
+H4P4H12P6(H12P3)
+3HP2(H2P2)2HPH & 64 seconds & 16 seconds\\
+\hline
+P3H2P2H4P2H3(PH2)3
+H2P8H6P2H6P9HPH2PH11
+P2H3PH2PHP2HPH3P6H3 & 1 hour & 4 minutes\\
+\hline
+P6HPH2P5H3PH5PH2(P2H2)
+2PH5PH10PH2PH7P11H7P2
+
+HPH3P6HPHP2 & 9 minutes & 1 minute\\
+\hline
+
+\end{tabular}\\
+\caption{Performance of Perm and Deep Reinforced Learning on the same protein sequence, the energy was omitted because for each sequence both model found the same energy of the folded state}
+\end{table}
+
+\FloatBarrier
+

@@ -25,7 +25,43 @@ We've also tried to improve the protein $HPHPHHH(P)^3HHHH(P)^2HH$, that has a le
 However, after about 5 hours of running time it has folded with an energy of -7 (a.u.), like in the article, with an estimated number of folds equal to $(1.24 \pm 0.43) \times 10^8$.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.75\textwidth]{./img/20_2.png}
+    \includegraphics[width=.75\textwidth]{./img/18_2.png}
     \caption{\emph{The protein $HPHPHHH(P)^3HHHH(P)^2HH$ has reached an energy minimum of -7 (a.u.) after $10^8$ iterations ($\sim 5$ hours).}}
     \label{fig:18_2}
+\end{figure}
+
+\subsection{Constraint-based Protein Structure Prediction}
+In the 2D case we showed that increasing the number of iterations resulted in better estimate of the energy.
+However, the previous algorithm is not able to give significant outputs in the 3D case.
+We tried so to estimate the energy in the 3D case with another algorithm, which is also based on constraint programming.
+This is implemented by \emph{CPSP-tools} \cite{cpsp} and has revealed to be very powerful, folding proteins of length $\sim 200$ in few seconds.
+Furthermore, this program is able to fold proteins in more complex lattices, like the 3D-face-centered-cubic one.
+In our case, we wanted to improve the results of article \cite{PERM} so, in order to keep consistency, we opted for a 3D-cubic lattice.
+All proteins tested converged to their minima, as we can see in Fig. \ref{fig:cpsp}.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./img/18_3D.png}
+        \caption{\emph{Energy $-4$ (a.u.) for the sequence $HH(P)^5HH(P)^3H(P)^3HP$.}}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./img/20_3D.png}
+        \caption{\emph{Energy $-11$ (a.u.) for the sequence $(HP)^2PH(HP)^2(PH)^2HP(PH)^2$.}}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./img/24_3D.png}
+        \caption{\emph{Energy $-8$ (a.u.) for the sequence $P(PH)^3(P)^4(HH(PP)^2)^2H$.}}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./img/25_3D.png}
+        \caption{\emph{Energy $-8$ (a.u.) for the sequence $P(PH)^3(P)^4(HH(PP)^2)^2HH$.}}
+    \end{subfigure}
+
+    \caption{\emph{Four proteins of length 18 (a), 20 (b), 24 (c) and 25 (d).}}
+    \label{fig:cpsp}
 \end{figure}

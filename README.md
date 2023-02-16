@@ -6,7 +6,7 @@ Firstly, the report will focus on an overview of proteins and, in particular, wh
 Next, the HP model will be presented in its mathematical form, introducing the two main approaches to this problem: the PERM algorithm and the Deep Reinforcement Learning technique. Then, some example of application of the PERM algorithm will be reported, obtaining results perfectly compatible with the well known benchmarks. Lastly, a brief discussion of the results is given, together with a global resume on the whole topic.
 
 ## Code
-All the code has been taken from an article (see bibliography). In particular, one can get it [on this repository](https://github.com/marcin119a/Monte-Carlo-Calculation-of-Protein-Folding).
+All the code has been taken from an article (see bibliography). In particular, one can get it [on this repository](https://github.com/marcin119a/Monte-Carlo-Calculation-of-Protein-Folding) and [on this site](http://www.bioinf.uni-freiburg.de/Software/CPSP/index.html).
 
 ## TODO list
 - [x] Abstract

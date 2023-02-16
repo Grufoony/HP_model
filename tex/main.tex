@@ -1,14 +1,6 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{hyperref}
-
-\title{HP model for protein folding: an overview and some applications} 
-\author{Gregorio Berselli, Isacco Faglioni}
-\date{\today}
-
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
 \usepackage{braket}
 \usepackage[margin=3cm]{geometry}
 \usepackage{pgfplots}
@@ -25,7 +17,6 @@
 \usepackage{epstopdf}
 \usepackage[english]{babel}
 \usepackage{csquotes}
-\usepackage{float}
 \floatplacement{figure}{H}
 \usepackage{tikz}
 \usetikzlibrary{shapes.misc}
@@ -33,8 +24,11 @@
 \addbibresource{biblio.bib}
 \usepackage{pgf}
 \usepackage{placeins}
-\usepackage{caption}
-\usepackage{subcaption}
+\usepackage{caption,subcaption}
+
+\title{HP model for protein folding: an overview and some applications} 
+\author{Gregorio Berselli, Isacco Faglioni}
+\date{\today}
 
 \begin{document}
 
@@ -46,8 +40,8 @@
 \begin{abstract}
 Purpose of this project is to provide the reader with a general view of the HP model for protein folding.
 Firstly, the report will focus on an overview of proteins and, in particular, why it's important to study how they fold.
-Next, the HP model will be presented in its mathematical form, introducing the two main approaches to this problem: the PERM algorithm and the Deep Reinforcement Learning technique.
-Then, some example of application of the PERM algorithm will be reported, obtaining results perfectly compatible with the well known benchmarks.
+Next, the HP model will be presented in its mathematical form, introducing the two main approaches to this problem: the PERM algorithm and the Reinforcement Learning technique.
+Then, applications of the PERM algorithm to some real world sequence of amino acids will prove to be capable of obtaining outcomes compatible with the well known benchmarks. The comparison of these results to the ones produced by Deep Reinforced Learning will display the computational efficiency and precision of the latter algorithms.
 Lastly, a brief discussion of the results is given, together with a global resume on the whole topic.
 \end{abstract}
 \thispagestyle{empty}

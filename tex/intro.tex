@@ -1,17 +1,17 @@
 Chain molecules are a typical problem of statistical mechanics \cite{statisticalmechanics}.
 The main mathematical approach applied to chain molecules is the statistical mechanics framework, which usually applies statistical methods and probability theory to large groups of microscopic entities.
 In our case, the chain represents the system, and we're interested in the interactions between its beads.
-If we set up the problem considering the system in a canonical ensemble, which means that it can only exchange energy with the universe, we can write the \emph{partition function} as
+If we set up the problem considering the system in a canonical ensemble, which means that it can only exchange energy with the universe, we can write the \emph{partition function} as:
 \begin{equation*}
     Z = \sum_i e^{-\beta\epsilon_i}
 \end{equation*}
 where $\epsilon_i$ is the energy of the $i$-th microstate and $\beta = \frac{1}{k_BT}$.
 From that we can define the \emph{Helmholtz' free energy} of the system
-\begin{equation*}
+\begin{equation*}:
     F = -\frac{1}{\beta} \ln Z
 \end{equation*}
-and we know that the stable conformation of the chain will minimize this energy.
-The consequence of that approach is that if we knew all the microstates (possible conformations of the chain) of the system and their energies, we would be able to compute all thermodynamic potentials.
+The most stable conformation will have minimum F.
+As a consequence, knowing all microstates of the system (possible conforations of the chain) and their energies, implies beeing able to compute all thermodynamic potentials
 Unfortunately, we are not able to compute every single microstate with its energy for long proteins: the best we can do, as we will see, is to estimate the number of possible folds or try to find the global minimum (solution) of the free energy.
 
 In particular, this project will focus on the protein folding problem.

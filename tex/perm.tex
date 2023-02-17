@@ -50,9 +50,9 @@ In the same way we can notice that
     \left\langle W \right\rangle = \frac{1}{n} \sum_{i=1}^n W\left(f_i\right) \approx \sum_f \mathbb{P}\left(f\right)W\left(f\right) = \sum_{f \in \mathcal{Z}_k} 1 = \left\lvert \mathcal{Z}_k \right\rvert
 \end{equation*}
 So we've found an estimator for the number of folds
-\begin{equation}
+\begin{equation*}
     \hat{\mathcal{Z}_k} = \left\langle W \right\rangle \approx \left\lvert \mathcal{Z}_k \right\rvert
-\end{equation}
+\end{equation*}
 Notice that this estimator does not give the number of \emph{unique} folds, including symmetries.
 Using the \emph{batch mean method} we are also able to estimate the variance of our estimator.
 Subdividing the sequence of weights $W\left(f_1\right),\ldots,W\left(f_n\right)$ into $j$ blocks of length $l$ each, so $n = jl$.
@@ -61,6 +61,6 @@ Defining the mean of the $b$-th block as
     \mu_b = \frac{1}{l} \sum_{i = (b-1)l + 1}^{bl} W\left(f_i\right)
 \end{equation*}
 we can define our estimator for the variance as
-\begin{equation}
+\begin{equation*}
     \hat{\sigma} = \sqrt{\frac{1}{j} \sum_{b = 1}^j \left(\mu_b - \left\langle W \right\rangle\right)^2}
-\end{equation}
+\end{equation*}

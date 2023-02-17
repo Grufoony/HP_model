@@ -12,18 +12,20 @@ From that we can define the \emph{Helmholtz' free energy} of the system
 \end{equation*}
 and we know that the stable conformation of the chain will minimize this energy.
 The consequence of that approach is that if we knew all the microstates (possible conformations of the chain) of the system and their energies, we would be able to compute all thermodynamic potentials.
-Unfortunately, we are not able to compute every single microstate with its energy for long protein: the best we can do, as we will see, is to estimate the number of possible folds or try to find the global minima (solution) of the free energy.
+Unfortunately, we are not able to compute every single microstate with its energy for long proteins: the best we can do, as we will see, is to estimate the number of possible folds or try to find the global minimum (solution) of the free energy.
 
 In particular, this project will focus on the protein folding problem.
-How protein folds is a vital process that can be useful for a lot of purposes, from bioengineering to the medical applications.
-Understanding how proteins fold may help us to cure diseases like Alzheimer or anemia, in which proteins start to not fold correctly, treat virus infections and design more efficient drugs \cite{PERM}. 
+How proteins fold is a vital process that can be useful for a lot of purposes, from bioengineering to the medical applications.
+Understanding this phenomenon may help us to cure diseases like Alzheimer or anemia, in which proteins start to not fold correctly, treat virus infections and design more efficient drugs \cite{PERM}. 
 Moreover, having a tool which allows us to simulate the folding process can be useful in order to understand what happens when a mutation occurs in a protein.
-There are many reasons for mutations, including the radiation exposure and the environment itself \cite{zanichelli}. A mutation is not always a bad thing because evolution starts from them, and we may also force some mutations in laboratory in order to get specific results.
+There are many reasons for mutations, including the radiation exposure and the environment itself \cite{zanichelli}.
+A mutation is not always a bad thing because evolution starts from them, and we may also want to force some mutations in laboratory in order to get specific results.
 
 The aim of this project is to report the main results in the developing of the HP model for protein folding.
 In order to do so, we'll first illustrate what the HP model is.
 Next, we will analyze two main approaches to this problem.
 The first one is a \emph{brute force} approach, that allows us to understand the properties of a protein by computing all its possible configurations.
 However, a brute force approach is typically the last thing one would like to do.
-An alternative method is that of using Reinforcement Learning algorithms. This method constitutes an improvement of the brute force methods since it uses artificial intelligence to save computational time. 
-Unfortunately the topic of RL is far too wide and complex for this report, for this reason the section on this method will cover extensively its most basic implementation and only describe qualitatively the state of the art models which are Deep Reinforcement Learning algorithms.
+An alternative method is using Reinforcement Learning algorithms.
+This method constitutes an improvement of the brute force methods since it uses artificial intelligence to save computational time. 
+Unfortunately the topic of RL is far too wide and complex for this report, for this reason the section on this method will cover extensively its most basic implementation and only describe qualitatively the state-of-the-art models which are Deep Reinforcement Learning algorithms.

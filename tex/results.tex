@@ -1,15 +1,15 @@
 Our test were performed mainly on two machines: one with an Intel® Core i7-7700 @ $3.6 \ GHz$ with $16 \ GB$ of RAM and one on an AMD® Ryzen 7 @ $3.6 \ GHz$ with $32 \ GB$ of RAM.
-\subsection{Monte Carlo PERM}
+\subsection{PERM}
 We want now to report an application of the PERM algorithm, made following the article's recipe \cite{PERM}.
 The goal of this algorithm is to estimate the total number of fold and then simulate a finite number of SRCs hoping to find the energy minimum.
 In the article the number of iterations is set to be $10^5$ for all proteins and the result is that they found only local minima, which are intermediate states.
-Our goal is to improve these 2D simulations by increasing the number of iterations, hoping to find the real minimum reported in a famous benchmark \cite{bench}.
+We tried to improve these 2D simulations by increasing the number of iterations, hoping to find the real minimum reported in a well-known benchmark \cite{bench}.
 
 The first protein for which we've improved the result is $HH(P)_5HH(P)_3H(P)_3HP$, that has a length of 18 amino acids (see Fig. \ref{fig:18_1}).
 In particular, we've found $(1.25 \pm 0.35) \times 10^8$ folds with an energy minimum of -4 (a.u.), equal to the benchmark's one.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.75\textwidth]{./img/18_1.png}
+    \includegraphics[width=.6\textwidth]{./img/18_1.png}
     \caption{\emph{The protein $HH(P)_5HH(P)_3H(P)_3HP$ has reached its energy minimum at -4 (a.u.) after $5 \times 10^6$ iterations ($\sim 20$ minutes).}}
     \label{fig:18_1}
 \end{figure}
@@ -17,7 +17,7 @@ Another protein for which we've improved the result is $HHHP(PH)_3PP(HP)_3PH$, t
 In this case, we've found $(8.9688 \pm 0.0033) \times 10^{10}$ folds with an energy minimum of -9 (a.u.), one unit more than the benchmark's one.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.75\textwidth]{./img/20_2.png}
+    \includegraphics[width=.6\textwidth]{./img/20_2.png}
     \caption{\emph{The protein $HHHP(PH)_3PP(HP)_3PH$ has reached an energy minimum of -9 (a.u.) after $10^7$ iterations ($\sim 45$ minutes).}}
     \label{fig:20_2}
 \end{figure}
@@ -25,19 +25,20 @@ We've also tried to improve the protein $HPHPHHH(P)_3HHHH(P)_2HH$, that has a le
 However, after about 5 hours of running time it has folded with an energy of -7 (a.u.), like in the article, with an estimated number of folds equal to $(1.24 \pm 0.43) \times 10^8$.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.75\textwidth]{./img/18_2.png}
+    \includegraphics[width=.6\textwidth]{./img/18_2.png}
     \caption{\emph{The protein $HPHPHHH(P)_3HHHH(P)_2HH$ has reached an energy minimum of -7 (a.u.) after $10^8$ iterations ($\sim 5$ hours).}}
     \label{fig:18_2}
 \end{figure}
 
-\subsection{Constraint-based Protein Structure Prediction PERM}
+\subsection{Constraint-based Protein Structure Prediction (CPSP)}
 In the 2D case we showed that increasing the number of iterations resulted in better estimate of the energy.
 However, the previous algorithm is not able to give significant outputs in the 3D case.
-We tried so to estimate the energy in the 3D case with another algorithm, which is also based on constraint programming.
+We tried so to estimate the energy in this case with another algorithm, which is based on constraint programming.
 This is implemented by \emph{CPSP-tools} \cite{cpsp} and has revealed to be very powerful, folding proteins of length $\sim 200$ in few seconds.
+Its velocity is based on an \emph{H-core database} that allows it to start from a known situation without going completely random.
 Furthermore, this program is able to fold proteins in more complex lattices, like the 3D-face-centered-cubic one.
-In our case, we wanted to improve the results of article \cite{PERM} so, in order to keep consistency, we opted for a 3D-cubic lattice.
-All proteins tested converged to their minima, as we can see in Fig. \ref{fig:cpsp}.
+In our case, as we said, we wanted to improve the results of article \cite{PERM} so, in order to keep consistency, we opted for a 3D-cubic lattice.
+All proteins tested converged to their energy minimum in less than a second, and we can see the results in Fig. \ref{fig:cpsp}.
 
 \begin{figure}[H]
     \centering

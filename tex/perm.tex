@@ -1,4 +1,5 @@
-It has been shown that the \emph{HP} model is a \emph{NP hard} problem, so it's very difficult to fold efficiently longer protein sequences.
+It has been shown that the \emph{HP} model is a \emph{NP hard} (Non-deterministic Polynomial-time hard) problem, which means that is impossible to find a polynomial time algorithm.
+A direct consequence is that longer proteins will be hard to fold.
 We will now discuss the Rosenbluth sampling method \cite{PERM}, which involves drawing successive steps of a random walk only from among acceptable points, which are points previously not visited.
 
 \subsection{Self-Repelling Chains}
@@ -20,6 +21,7 @@ It is known that SAWs are fractals and their number on a given lattice will incr
 However, there's a quite important difference between a ``true'' SAW and the problem we're interested in.
 It has been proven \cite{trueSAW} that a SAW differentiates from a Self-Repelling Chain (polymer problem, see Fig. \ref{fig:src_example}) by a statistical point of view.
 In fact, in an SRC, every possible configuration of the chain is equiprobable while this statement is not true for a SAW.
+This is true because an SRC is a sort of Markov's process while a SAW depends on its entire past history.
 The result is that, since the statistics of the SRC is equivalent to the $n \to 0$ limit of an $O(n)$ symmetric $\phi^4$ field theory, the upper critical dimensionality for it turns out to be 4 vs 2 for a SAW.
 We won't go deeper in this aspect because it is beyond the scope of this project.
 The solution of an SRC is based on a \emph{constraint programming} approach, in which we try to solve a Constraint Satisfaction Problem like that.
@@ -41,7 +43,7 @@ We notice that the probability of picking a random fold $f_i \in \mathcal{K}$ of
 Let's now denote with $n_y$ the number of folds $f_i$ for which $W\left(f_i\right) = y$ and the set of these elements $\mathcal{W}_y = \left\{f \in \mathcal{K} \ | \ W\left(f_i\right) = y\right\}$.
 Then, for the law of large numbers
 \begin{equation*}
-    \frac{n_s}{n} \approx \mathbb{P}\left(\mathcal{W}_y\right)
+    \frac{n_y}{n} \approx \mathbb{P}\left(\mathcal{W}_y\right)
 \end{equation*}
 In the same way we can notice that
 \begin{equation*}

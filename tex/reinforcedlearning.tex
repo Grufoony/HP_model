@@ -17,11 +17,10 @@ The goal of the model is to find the best \emph{policy} which is a function that
 \subsubsection{Markov Decision Processes}
 
 MDPs are at the core of RL algorithms, since they describe a discrete-time stochastic control process.
-The name comes from the fact that they are an extension of Markov's chains, which are systems in which the evolution of a state depends only on the current state and not on its past.
-For more on the topic see \cite{bellman1957markovian}.
+The name comes from the fact that they are an extension of Markov's chains, which are systems in which the evolution of a state depends only on the current state and not on its past \cite{bellman1957markovian}.
 
 
-It is then necessary to describe in Markov terms Fig. \ref{fig:rl0}.
+It is then necessary to describe in Markov terms the Fig. \ref{fig:rl0}.
 \emph{S} is the set of all possible states and \emph{A} is the set of all possible actions.
 The distribution of all possible rewards \emph{R}, can be obtained by every couple of states and actions (\emph{s, a}) and for each possible adjacent couple of states there is a transition probability \emph{P} associated.
 
@@ -59,9 +58,9 @@ An optimal Q-value is a Q-value that follows the optimal policy. All Q-values ar
 \subsubsection{Bellman Equation and Optimal Q-values}
 
 The Bellman equation for Q-learning gives the conditions for equilibrium at correct Q-values, setting therefore a constraint to optimize the policy.
-\begin{equation}
+\begin{equation*}
 Q(s_{0}, a) = r(s_{0},a ) + \gamma  \max_{a'}\left\{Q(s_1, a')\right\}
-\end{equation}
+\end{equation*}
 $Q(s_{0}, a)$ is the Q-value associated with the couple ($s_{0}$, $a$), $r(s_{0},a )$ is the reward associated with the same couple and the term $$\gamma \max_{a'}\left\{Q(s_1, a')\right\}$$ is the discounted maximum Q-value for the state-action pair at the successive instant.
 
 \subsubsection{General Q-learning algorithm} \label{GQL}
@@ -81,9 +80,9 @@ Q-learning algorithms follow more or less the same general structure
 
 An additional parameter might be given to fix how fast the Q-values should change for each iteration.
 This parameter is called the \emph{Learning Rate} $\alpha \in [0,1]$. In this case the Bellman equation becomes:
-\begin{equation}
+\begin{equation*}
 Q(s_{0}, a) = (1-\alpha)Q(s_{0}, a) + \alpha \left(r(s_{0},a ) + \gamma  \max_{a'}\left\{Q(s_1, a')\right\}\right) 
-\end{equation}
+\end{equation*}
 
 \subsection{Reinforcement Learning applied to the HP model}
 The model described is able to solve bidimensional folds for a protein approximated with the HP model.
@@ -106,7 +105,7 @@ $\delta$ is defined as:
 Since there is no reason for initial bias between states the neighbors are all equiprobable with probability of transition $\frac{1}{4}$.
 
 Before defining the reward function it is appropriate to spend a few words to visualize how the RL algorithm described so far models the protein and its folds.
-Consider a complete episode and its associated the path $\varsigma = (\varsigma_{0}, \varsigma_1, \ldots , \varsigma_{k-1}) \ \ \varsigma_{i}$.
+Consider a complete episode and its associated the path $\varsigma = (\varsigma_{0}, \varsigma_1, \ldots , \varsigma_{k-1})$.
 To this path there will be an action sequence associated $a_{\varsigma} = (a_{\varsigma_{0}}, a_{\varsigma_{1}}, \ldots , a_{\varsigma_{k-2}})$.
 This sequence of actions is linked to the path since each element of both sequences appears in Eq. (\ref{delta}).
 $a_{\varsigma}$ can be viewed as a possible bidimensional structure of the protein sequence.
@@ -130,7 +129,7 @@ With the reward function it is now clear that the goal of maximizing the rewards
 \subsection{Learning Phase}
 
 For learning, it is convenient to use Q-learning.
-It can be proven that during the training process the values of the Q-table converge to the true values (for the proof see \cite{czibula2011reinforcement}), so it is guaranteed that at the end of the training process the values found will be close to the true values.
+It can be proven that during the training process the values of the Q-table converge to the true values \cite{czibula2011reinforcement}, so it is guaranteed that at the end of the training process the values found will be close to the true values.
 After the training the agent acts with a greedy mechanism until it reaches a solution.
 The adjective \emph{greedy} in this context means that at each step the system transitions to a neighbor state with maximum Q-value.
 

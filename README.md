@@ -9,3 +9,15 @@ Lastly, a brief discussion of the results is given, together with a global resum
 
 ## Code
 All the code has been taken from an article (see bibliography). In particular, one can get it [on this repository](https://github.com/marcin119a/Monte-Carlo-Calculation-of-Protein-Folding) and [on this site](http://www.bioinf.uni-freiburg.de/Software/CPSP/index.html).
+
+## Citing
+```BibTex
+@misc{HP_model,
+  author = {Berselli, Gregorio and Faglioni, Isacco},
+  title = {HP model for protein folding: an overview and some applications.},
+  year = {2023},
+  url = {https://github.com/Grufoony/HP_model},
+  publisher = {GitHub},
+  howpublished = {\url{https://github.com/Grufoony/HP_model}}
+}
+```
